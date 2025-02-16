@@ -1,14 +1,12 @@
 "use client"; // Explicit Client Component Declaration
 
 import React from "react";
-import { MapPin, Phone, Mail, Globe, Github, LinkedinIcon } from "lucide-react"; // Updated LinkedinIcon
+import Image from "next/image";
+import {Phone, Mail, Globe, Github, Linkedin } from "lucide-react"; // Fixed Linkedin import
 
 const Footer: React.FC = () => {
     return (
-        <footer
-            className="relative bg-[#1A212F] text-white py-8 overflow-hidden"
-            aria-label="Business Card Style Footer"
-        >
+        <footer className="relative bg-[#1A212F] text-white py-8 overflow-hidden" aria-label="Footer">
             {/* Green Curved Background */}
             <div className="absolute inset-0 -z-10">
                 <svg
@@ -30,21 +28,17 @@ const Footer: React.FC = () => {
                     <div className="flex flex-col">
                         <h2 className="text-2xl font-bold mb-1 text-[#378146]">Prem Kumar</h2>
                         <p className="text-gray-300 text-sm mb-4">Android Developer</p>
-                        <div className="mb-2 flex items-start">
-                            <Phone className="h-4 w-4 mr-2 text-[#378146] mt-0.5" />
+                        <div className="mb-2 flex items-center">
+                            <Phone className="h-4 w-4 mr-2 text-[#378146]" />
                             <p className="text-gray-200 text-sm">+91 945681xxx</p>
                         </div>
-                        <div className="mb-2 flex items-start">
-                            <Globe className="h-4 w-4 mr-2 text-[#378146] mt-0.5" />
+                        <div className="mb-2 flex items-center">
+                            <Globe className="h-4 w-4 mr-2 text-[#378146]" />
                             <p className="text-gray-200 text-sm">My Portfolio</p>
                         </div>
-                        <div className="mb-2 flex items-start">
-                            <Mail className="h-4 w-4 mr-2 text-[#378146] mt-0.5" />
+                        <div className="mb-2 flex items-center">
+                            <Mail className="h-4 w-4 mr-2 text-[#378146]" />
                             <p className="text-gray-200 text-sm">premkumarshankar200@gmail.com</p>
-                        </div>
-                        <div className="flex items-start">
-                            <MapPin className="h-4 w-4 mr-2 text-[#378146] mt-0.5" />
-                            <p className="text-gray-200 text-sm">N/A</p>
                         </div>
                     </div>
                 </div>
@@ -56,10 +50,12 @@ const Footer: React.FC = () => {
                             Android Developer
                         </div>
                         <div className="w-24 h-24 rounded-full bg-gray-600 overflow-hidden">
-                            <img
+                            <Image
                                 src="/article_icon_effect.gif"
                                 alt="Prem Kumar"
-                                className="w-full h-full object-cover"
+                                width={96}
+                                height={96}
+                                className="object-cover"
                             />
                         </div>
                     </div>
@@ -74,7 +70,7 @@ const Footer: React.FC = () => {
                         <Github className="h-6 w-6" />
                     </a>
                     <a href="https://www.linkedin.com/in/premkumar07/" className="hover:text-lime-300">
-                        <LinkedinIcon className="h-6 w-6" />
+                        <Linkedin className="h-6 w-6" />
                     </a>
                     <a href="mailto:premkumarshankar2002@gmail.com" className="hover:text-lime-300">
                         <Mail className="h-6 w-6" />

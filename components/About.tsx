@@ -1,6 +1,7 @@
 "use client";
 
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import Image from "next/image";
 
 export default function About() {
   return (
@@ -10,11 +11,13 @@ export default function About() {
 
         {/* Circular Photo Frame with Animation */}
         <div className="flex justify-center mb-6">
-          <div className="w-40 h-40 rounded-full border-4 border-green-400 overflow-hidden relative animate-spin-slow shadow-lg">
-            <div className="absolute inset-0 border-4 border-dashed border-green-500 rounded-full animate-pulse"></div>
-            <img
+          <div className="relative w-40 h-40 rounded-full border-4 border-green-400 overflow-hidden shadow-lg">
+            <div className="absolute inset-0 border-4 border-dashed border-green-500 rounded-full animate-slow-spin"></div>
+            <Image
               src="/1688210744190.jpg"
               alt="Prem Bhai Portfolio"
+              width={160} // Tailored for optimization
+              height={160}
               className="w-full h-full object-cover rounded-full"
             />
           </div>
@@ -22,11 +25,11 @@ export default function About() {
 
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-lg text-slate-700 mb-6">
-            I'm a passionate Android developer with <span className="font-semibold text-green-600">2+ years</span> of experience in creating innovative and user-friendly
+            I&apos;m a passionate Android developer with <span className="font-semibold text-green-600">2+ years</span> of experience in creating innovative and user-friendly
             mobile applications. My expertise includes <span className="font-semibold">Java, Kotlin</span>, and the latest Android development tools and libraries.
           </p>
           <p className="text-lg text-slate-700 mb-6">
-            When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or
+            When I&apos;m not coding, you can find me exploring new technologies, contributing to open-source projects, or
             enjoying a good cup of coffee while brainstorming my next big app idea.
           </p>
         </div>
@@ -51,7 +54,7 @@ export default function About() {
             <i className="fab fa-linkedin text-2xl text-slate-700 hover:text-green-500 transition-all"></i>
           </a>
           <a href="https://x.com/Android100X" target="_blank" rel="noopener noreferrer">
-            <i className="fab fa-x-twitter text-2xl text-slate-700 hover:text-green-500 transition-all"></i>
+            <i className="fab fa-twitter text-2xl text-slate-700 hover:text-green-500 transition-all"></i>
           </a>
           <a href="https://www.instagram.com/android100dev/#" target="_blank" rel="noopener noreferrer">
             <i className="fab fa-instagram text-2xl text-slate-700 hover:text-green-500 transition-all"></i>

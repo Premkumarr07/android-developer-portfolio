@@ -9,18 +9,12 @@ import {
   faNodeJs,
   faCss3Alt,
   faJsSquare,
-  faGitAlt,
   faAndroid,
   faJava,
   faFlutter,
 } from "@fortawesome/free-brands-svg-icons";
-import {
-  faC,
-  faDatabase,
-  faCode,
-  faPenNib,
-  faMobile,
-} from "@fortawesome/free-solid-svg-icons";
+import { faDatabase, faCode, faMobile } from "@fortawesome/free-solid-svg-icons";
+import Image from "next/image"; // Importing Next.js Image component
 
 const skills = [
   { name: "Figma", icon: faFigma, color: "#F24E1E" },
@@ -34,12 +28,7 @@ const skills = [
   { name: "JavaScript", icon: faJsSquare, color: "#F7DF1E" },
   { name: "CSS3", icon: faCss3Alt, color: "#1572B6" },
   { name: "Firebase", icon: faDatabase, color: "#FFCA28" },
-  { 
-    name: "Dart", 
-    icon: null, // No FontAwesome icon for Dart
-    color: "#00B4AB", 
-    imagePath: "/icons8-dart.svg" // Path to downloaded Dart icon
-  },
+  { name: "Dart", icon: null, color: "#00B4AB", imagePath: "/icons8-dart.svg" },
   { name: "Flutter", icon: faFlutter, color: "#02569B" },
 ];
 
@@ -53,7 +42,6 @@ export default function Skills() {
       exit={{ opacity: 0, y: -30 }}
       transition={{ duration: 1, ease: "easeOut" }}
     >
-      {/* Background Particles (Optional) */}
       <div className="absolute inset-0 pointer-events-none">
         <motion.div
           className="absolute top-16 left-20 w-32 h-32 bg-gray-200 opacity-20 rounded-full blur-3xl"
@@ -88,20 +76,21 @@ export default function Skills() {
                          shadow-md transition-all border border-gray-200 
                          hover:border-gray-400 hover:shadow-xl hover:bg-gray-200 relative overflow-hidden"
             >
-              {/* Render Icon or Image */}
               {skill.icon ? (
                 <FontAwesomeIcon
                   icon={skill.icon}
                   className="text-4xl mb-2 group-hover:drop-shadow-lg transition-transform"
                   style={{ color: skill.color }}
                 />
-              ) : (
-                <img
+              ) : skill.imagePath ? (
+                <Image
                   src={skill.imagePath}
                   alt={skill.name}
-                  className="w-12 h-12 mb-2 group-hover:drop-shadow-lg transition-transform"
+                  width={48}
+                  height={48}
+                  className="mb-2 group-hover:drop-shadow-lg transition-transform"
                 />
-              )}
+              ) : null}
               <span className="text-sm text-center text-gray-600 font-medium group-hover:text-gray-800 transition-colors">
                 {skill.name}
               </span>
