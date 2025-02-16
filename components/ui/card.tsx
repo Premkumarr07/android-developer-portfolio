@@ -3,7 +3,7 @@ import React from "react";
 // Card Components
 export const Card = ({ children, className }: { children: React.ReactNode; className?: string }) => {
   return (
-    <div className={`bg-white rounded-lg shadow-md overflow-hidden ${className}`}>
+    <div className={`bg-white rounded-lg shadow-md overflow-hidden ${className || ""}`}>
       {children}
     </div>
   );
