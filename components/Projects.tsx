@@ -1,92 +1,65 @@
-"use client"; // Required for Next.js with Framer Motion
+"use client";
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { motion } from "framer-motion";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import Image from "next/image";
 
-const projects = [
-  {
-    title: "FitTrack Pro",
-    description: "A comprehensive fitness tracking app with personalized workout plans and nutrition guidance.",
-    image: "/Thumbnail.png",
-  },
-  {
-    title: "EcoScan",
-    description: "An app that helps users identify eco-friendly products by scanning barcodes and providing sustainability ratings.",
-    image: "/Travel.jpg",
-  },
-  {
-    title: "MindfulMinutes",
-    description: "A meditation and mindfulness app with guided sessions and progress tracking.",
-    image: "/1.png",
-  },
-  {
-    title: "CodeMaster",
-    description: "An interactive coding practice platform with real-time feedback and AI guidance.",
-    image: "/placeholder.svg?height=200&width=300",
-  },
-];
-
-export default function Projects() {
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 400,
-    slidesToShow: 2,
-    slidesToScroll: 1,
-    autoplay: 100,
-    autoplaySpeed: 1000,
-    pauseOnHover: true,
-    responsive: [
-      { breakpoint: 1024, settings: { slidesToShow: 2 } },
-      { breakpoint: 768, settings: { slidesToShow: 1 } },
-    ],
-  };
-
+export default function About() {
   return (
-    <section id="projects" className="py-20 bg-slate-100 text-gray-900">
-      <div className="container mx-auto px-6">
-        <motion.h2
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="text-4xl font-bold text-center mb-12 text-gray-800"
-        >
-          My Projects
-        </motion.h2>
+    <section id="about" className="py-20 bg-slate-100"> 
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl font-bold text-center mb-8 text-slate-800">About Me</h2>
 
-        <Slider {...settings}>
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-              initial={{ y: 10 }}
-              animate={{ y: [-10, 10, -10] }} // Subtle floating animation
-              transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
-              className="px-4"
-            >
-              <Card className="shadow-lg border border-gray-300 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-xl">
-                <motion.img
-                  src={project.image || "/placeholder.svg"}
-                  alt={project.title}
-                  className="w-full h-56 object-cover rounded-t-2xl"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.8, delay: index * 0.3 }}
-                />
-                <CardHeader className="bg-white text-center py-5">
-                  <CardTitle className="text-xl font-semibold text-gray-800">{project.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="p-5 text-center bg-gray-50 text-gray-600">
-                  <CardDescription>{project.description}</CardDescription>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
-        </Slider>
+        {/* Circular Photo Frame with Animation */}
+        <div className="flex justify-center mb-6">
+          <div className="relative w-40 h-40 rounded-full border-4 border-green-400 overflow-hidden shadow-lg">
+            <div className="absolute inset-0 border-4 border-dashed border-green-500 rounded-full animate-slow-spin"></div>
+            <Image
+              src="/1688210744190.jpg"
+              alt="Prem Bhai Portfolio"
+              width={160} // Tailored for optimization
+              height={160}
+              className="w-full h-full object-cover rounded-full"
+            />
+          </div>
+        </div>
+
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-lg text-slate-700 mb-6">
+            I&apos;m a passionate Android developer with <span className="font-semibold text-green-600">2+ years</span> of experience in creating innovative and user-friendly
+            mobile applications. My expertise includes <span className="font-semibold">Java, Kotlin</span>, and the latest Android development tools and libraries.
+          </p>
+          <p className="text-lg text-slate-700 mb-6">
+            When I&apos;m not coding, you can find me exploring new technologies, contributing to open-source projects, or
+            enjoying a good cup of coffee while brainstorming my next big app idea.
+          </p>
+        </div>
+
+        {/* Download Resume Button */}
+        <div className="flex justify-center mt-6">
+          <a 
+            href="/Prem_Kumar.pdf" 
+            download
+            className="px-6 py-3 bg-green-500 text-white font-semibold text-lg rounded-lg shadow-md hover:bg-green-600 transition-all duration-300 flex items-center"
+          >
+            <i className="fas fa-download mr-2"></i> Resume
+          </a>
+        </div>
+
+        {/* Icons Section */}
+        <div className="flex justify-center space-x-6 mt-6">
+          <a href="https://github.com/Premkumarr07" target="_blank" rel="noopener noreferrer">
+            <i className="fab fa-github text-2xl text-slate-700 hover:text-green-500 transition-all"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/premkumar07/" target="_blank" rel="noopener noreferrer">
+            <i className="fab fa-linkedin text-2xl text-slate-700 hover:text-green-500 transition-all"></i>
+          </a>
+          <a href="https://x.com/Android100X" target="_blank" rel="noopener noreferrer">
+            <i className="fab fa-twitter text-2xl text-slate-700 hover:text-green-500 transition-all"></i>
+          </a>
+          <a href="https://www.instagram.com/android100dev/#" target="_blank" rel="noopener noreferrer">
+            <i className="fab fa-instagram text-2xl text-slate-700 hover:text-green-500 transition-all"></i>
+          </a>
+        </div>
       </div>
     </section>
   );
